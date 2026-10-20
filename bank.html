@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>포니봇 활동뱅크</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap">
+<style>
+:root{--paper:#F5F2EA;--paper-2:#ECE7DB;--ink:#1F1D1A;--ink-2:#4B463E;--muted:#8B8478;--line:#DAD3C4;--red:#D6402F;--blue:#2856C9;--me:#FFE14A;
+--sans:'Pretendard Variable',Pretendard,'Malgun Gothic',sans-serif;--hand:'Nanum Pen Script',cursive}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);word-break:keep-all;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 24px 80px}
+.kicker{font-family:var(--hand);font-size:34px;color:var(--red);rotate:-1.5deg;display:inline-block}
+h1{font-size:44px;font-weight:900;letter-spacing:-.03em;margin:6px 0 10px}
+.lead{font-size:18px;color:var(--ink-2);max-width:900px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0 8px}
+.bar a,.bar button{font:600 15px var(--sans);padding:8px 14px;border:2px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;cursor:pointer}
+.bar a b{color:var(--red);margin-left:4px}
+.bar button[aria-pressed="true"]{background:var(--me)}
+.bar .sp{flex:1}
+section{margin-top:44px}
+h2{font-size:28px;font-weight:800;letter-spacing:-.02em;padding-bottom:6px;border-bottom:3px solid var(--ink)}
+.desc{margin:10px 0 18px;color:var(--ink-2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:18px}
+.card{background:#fff;border:2.5px solid var(--ink);border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.card.t-c{box-shadow:6px 6px 0 var(--me)}
+.card header{display:flex;gap:10px;align-items:flex-start}
+.card h3{font-size:20px;font-weight:800;line-height:1.3}
+.tier{flex:none;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;border:2px solid var(--ink);margin-top:2px}
+.t-c .tier{background:var(--ink);color:#fff}.t-o .tier{border-color:var(--blue);color:var(--blue)}.t-x .tier{border-color:var(--muted);color:var(--muted)}
+.learn{font-family:var(--hand);font-size:25px;line-height:1.15;color:var(--red)}
+dl{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;font-size:14.5px}
+dt{color:var(--muted);font-weight:700}
+dd a{color:var(--blue);font-weight:700;margin-right:8px}
+.none{color:var(--muted)}
+.blk img{display:block;width:100%;max-height:220px;object-fit:contain;object-position:left top;border:1.5px solid var(--line);border-radius:10px;background:#fff;padding:6px}
+.memo{font-size:13.5px;color:var(--ink-2);background:var(--paper-2);border-radius:10px;padding:8px 10px}
+.memo a{color:var(--blue);word-break:break-all}
+.foot{margin-top:50px;font-size:13px;color:var(--muted)}
+body.hide-ext .card[data-tier="ext"],body.only-core .card:not([data-tier="core"]){display:none}
+@media print{.bar{display:none}.card{break-inside:avoid}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="kicker">세종 피지컬AI 교원연수 Ⅲ · 자율주행로봇 · 2026. 11. 21.</span>
+  <h1>포니봇 활동뱅크</h1>
+  <p class="lead">덱에 들어간 활동과 덱에 못 넣은 공식 교안(boundaryX AI 포니봇 17차시) 활동을 <b>판단을 누가 하느냐</b>로 묶었습니다. 카드의 '덱' 링크는 해당 장으로 바로 열립니다. 블록 그림을 누르면 크게 보입니다. 모두 41개.</p>
+  <nav class="bar"><a href="#g1">로봇 없이 <b>7</b></a><a href="#g2">몸 익히기 <b>6</b></a><a href="#g3">사람 조종 <b>4</b></a><a href="#g4">규칙 <b>9</b></a><a href="#g5">학습 모델 <b>15</b></a><span class="sp"></span>
+    <button type="button" id="f-core" aria-pressed="false">핵심만</button>
+    <button type="button" id="f-ext" aria-pressed="false">확장 숨기기</button>
+    <button type="button" onclick="print()">인쇄 / PDF</button></nav>
+  <section id="g1"><h2>로봇 없이 · 브라우저 체험</h2><p class="desc">포니봇·마이크로비트 없이 노트북만으로 됩니다. 도입이나 쉬는 시간, 로봇 0대 교실에 씁니다.</p><div class="grid"><article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>초파리 뇌 · 칠해서 걷게 하기</h3></header>
+  <p class="learn">뉴런 하나는 단순하고, 판단은 연결에서 나온다</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>노트북(WebGPU), 첫 실행 76MB</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#9">#9</a> <a href="index.html#10">#10</a></dd></dl>
+  <p class="memo">전날 캐시 필수</p>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>자율주행 시뮬 · 뇌 지우고 다시 키우기</h3></header>
+  <p class="learn">광선 5개 센서 + 신경망, 규칙 차와 학습 차를 눈으로 비교</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>노트북</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#22">#22</a> <a href="index.html#23">#23</a></dd></dl>
+  <p class="memo">radufromfinland.com/projects/selfdrivingcar</p>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>휴머노이드 넘어뜨리기</h3></header>
+  <p class="learn">학습된 정책이 균형을 잡는다</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>노트북</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#29">#29</a> <a href="index.html#30">#30</a></dd></dl>
+  <p class="memo">ttktjmt.github.io/mjswan</p>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>위협 회피 회로 · 잡음 켜고 끄기</h3></header>
+  <p class="learn">임계값이 곧 판단, 잡음이 들어오면 헛반응과 놓침</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>노트북</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#76">#76</a> <a href="index.html#77">#77</a></dd></dl>
+  <p class="memo">ak7660.github.io/fly-brain-escape</p>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>Transformer Explainer · 다음 단어의 확률</h3></header>
+  <p class="learn">1등 답도 100%가 아니다 → 신뢰도</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>개인</dd><dt>준비</dt><dd>노트북(약 600MB)</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#126">#126</a> <a href="index.html#127">#127</a></dd></dl>
+  
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>SmolVLM · 카메라가 본 것을 말한다</h3></header>
+  <p class="learn">말하는 AI에서 보고 움직이는 AI로(VLA)</p>
+  <dl><dt>시간</dt><dd>3분</dd><dt>형태</dt><dd>강사 시연</dd><dt>준비</dt><dd>강사 노트북 웹캠</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#12">#12</a></dd></dl>
+  
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>손 모양 학습 연습 모드 · 로봇 0대</h3></header>
+  <p class="learn">데이터·클래스·신뢰도를 로봇 없이 전부 겪는다</p>
+  <dl><dt>시간</dt><dd>15분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>노트북 웹캠</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#124">#124</a> <a href="index.html#149">#149</a></dd></dl>
+  <p class="memo"><a href="https://qksrhrrltnf-ctrl.github.io/microbit-ai-control/handpose.html" target="_blank">qksrhrrltnf-ctrl.github.io/microbit-ai-control/handpose.html</a></p>
+</article></div></section><section id="g2"><h2>몸 익히기 · 출력과 이동</h2><p class="desc">센서도 판단도 없이 정해진 순서대로 움직입니다. 순차 구조를 익힙니다.</p><div class="grid"><article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>첫 다운로드 · 하트 하나</h3></header>
+  <p class="learn">다운로드·장치 연결·실패 대처(전원 OFF → USB 재연결)</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>1인 1PC</dd><dt>준비</dt><dd>마이크로비트, USB 케이블</dd><dt>원교안</dt><dd>1차시 p.20~21, p.29</dd><dt>덱</dt><dd><a href="index.html#53">#53</a></dd></dl>
+  
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>OLED 디지털 주차 번호판</h3></header>
+  <p class="learn">OLED 좌표(0~127 × 0~63)와 문장·도형 출력</p>
+  <dl><dt>시간</dt><dd>5분</dd><dt>형태</dt><dd>1인</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>3~4차시 p.29~32</dd><dt>덱</dt><dd><a href="index.html#55">#55</a></dd></dl>
+  
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>LED 색·밝기·페이드</h3></header>
+  <p class="learn">P8에 연결된 RGB LED 4개, 변수와 255번 반복으로 페이드</p>
+  <dl><dt>시간</dt><dd>15분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>5~6차시 p.10~18</dd><dt>덱</dt><dd><span class="none">덱에 없음</span></dd></dl>
+  <a class="blk" href="img/blocks/L56_4.png" target="_blank"><img src="img/blocks/L56_4.png" alt="LED 색·밝기·페이드 블록 코드" loading="lazy"></a><p class="memo">덱에 없음. 블루투스 코드와 함께 못 씀(LED 확장 제거)</p>
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>A 버튼 50 → 125 → 255</h3></header>
+  <p class="learn">속도 0~255와 출발 속도(데드밴드)</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 바닥</dd><dt>원교안</dt><dd>3~4차시 p.15</dd><dt>덱</dt><dd><a href="index.html#85">#85</a></dd></dl>
+  <a class="blk" href="img/blocks/L34_2.png" target="_blank"><img src="img/blocks/L34_2.png" alt="A 버튼 50 → 125 → 255 블록 코드" loading="lazy"></a>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>모터 하나씩 돌려 보기</h3></header>
+  <p class="learn">M1~M4 위치와 정회전·역회전</p>
+  <dl><dt>시간</dt><dd>5분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>3~4차시 p.17</dd><dt>덱</dt><dd><a href="index.html#84">#84</a></dd></dl>
+  <p class="memo">교안 도면 M3 중복 → 하나는 M4</p>
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>메카넘 8방향</h3></header>
+  <p class="learn">45° 롤러와 네 바퀴 힘의 합</p>
+  <dl><dt>시간</dt><dd>12분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 테이프</dd><dt>원교안</dt><dd>3~4차시 p.20~23</dd><dt>덱</dt><dd><a href="index.html#91">#91</a></dd></dl>
+  <a class="blk" href="img/blocks/L34_3.png" target="_blank"><img src="img/blocks/L34_3.png" alt="메카넘 8방향 블록 코드" loading="lazy"></a>
+</article></div></section><section id="g3"><h2>사람 조종 · 판단은 사람이</h2><p class="desc">로봇은 받은 명령만 수행합니다. 오후의 &#x27;학습 모델&#x27;과 대비할 기준점입니다.</p><div class="grid"><article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>라디오 기울기 조종</h3></header>
+  <p class="learn">숫자로 약속한 명령, 그룹 번호, 송신 OFF해도 마지막 명령 유지</p>
+  <dl><dt>시간</dt><dd>10분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>포니봇, 여분 마이크로비트 1개</dd><dt>원교안</dt><dd>11~12차시 p.15~27</dd><dt>덱</dt><dd><a href="index.html#92">#92</a> <a href="index.html#93">#93</a></dd></dl>
+  <a class="blk" href="img/blocks/L1112_radio_tx.png" target="_blank"><img src="img/blocks/L1112_radio_tx.png" alt="라디오 기울기 조종 블록 코드" loading="lazy"></a><p class="memo">평평하게(0=정지) → B 순서 안전 안내</p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>웹 게임패드 블루투스 조종</h3></header>
+  <p class="learn">문자 명령 U/D/L/R/B, 페어링 설정</p>
+  <dl><dt>시간</dt><dd>10분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 블루투스 노트북</dd><dt>원교안</dt><dd>11~12차시 p.28~43</dd><dt>덱</dt><dd><a href="index.html#95">#95</a> <a href="index.html#96">#96</a></dd></dl>
+  <a class="blk" href="img/blocks/L1112_ble_rx.png" target="_blank"><img src="img/blocks/L1112_ble_rx.png" alt="웹 게임패드 블루투스 조종 블록 코드" loading="lazy"></a><p class="memo">공식 코드는 끊겨도 모터가 멈추지 않음</p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>Shake It 레이스</h3></header>
+  <p class="learn">가속도 센서로 흔든 횟수 → 주행 시간·속도</p>
+  <dl><dt>시간</dt><dd>10분</dd><dt>형태</dt><dd>팀 대항</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>7~8차시 p.30~31</dd><dt>덱</dt><dd><span class="none">덱에 없음</span></dd></dl>
+  <a class="blk" href="img/blocks/L78_6.png" target="_blank"><img src="img/blocks/L78_6.png" alt="Shake It 레이스 블록 코드" loading="lazy"></a><p class="memo">덱에 없음. 아이스브레이커로 좋음</p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>후~후~ 바람 레이스</h3></header>
+  <p class="learn">마이크 소리 크기 기준값, 랜덤 거리</p>
+  <dl><dt>시간</dt><dd>10분</dd><dt>형태</dt><dd>팀 대항</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>7~8차시 p.32~33</dd><dt>덱</dt><dd><span class="none">덱에 없음</span></dd></dl>
+  <a class="blk" href="img/blocks/L78_7.png" target="_blank"><img src="img/blocks/L78_7.png" alt="후~후~ 바람 레이스 블록 코드" loading="lazy"></a><p class="memo">덱에 없음. 여러 대가 동시에 반응하니 순서 운영</p>
+</article></div></section><section id="g4"><h2>규칙 · 센서가 보고 사람이 정한 기준이 판단</h2><p class="desc">오전의 핵심입니다. 기준값을 정한 사람이 판단을 만든다는 것을 겪습니다.</p><div class="grid"><article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>조도값 재기 · 가렸을 때와 뗐을 때</h3></header>
+  <p class="learn">기준값은 재서 정한다(측정 → 판단 → 대입)</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>5~6차시 p.25~28</dd><dt>덱</dt><dd><a href="index.html#63">#63</a></dd></dl>
+  
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>오토라이트</h3></header>
+  <p class="learn">if-else와 기준값, 히스테리시스</p>
+  <dl><dt>시간</dt><dd>10분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>5~6차시 p.27</dd><dt>덱</dt><dd><a href="index.html#65">#65</a> <a href="index.html#66">#66</a></dd></dl>
+  <a class="blk" href="img/blocks/P6_autolight_fixed.png" target="_blank"><img src="img/blocks/P6_autolight_fixed.png" alt="오토라이트 블록 코드" loading="lazy"></a><p class="memo">교안 &lt;40, 공식 hex &gt;200 → &lt;40으로 통일</p>
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>15cm 경보와 경보 주기</h3></header>
+  <p class="learn">센서값은 숫자, 시간으로도 쓴다</p>
+  <dl><dt>시간</dt><dd>10분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>7~8차시 p.14~20</dd><dt>덱</dt><dd><a href="index.html#70">#70</a> <a href="index.html#72">#72</a></dd></dl>
+  <a class="blk" href="img/blocks/L78_3.png" target="_blank"><img src="img/blocks/L78_3.png" alt="15cm 경보와 경보 주기 블록 코드" loading="lazy"></a>
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>사각형 주행 · 4번 반복</h3></header>
+  <p class="learn">시간으로 90° 맞추기, 개루프의 한계</p>
+  <dl><dt>시간</dt><dd>12분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 바닥</dd><dt>원교안</dt><dd>3~4차시 p.18~19</dd><dt>덱</dt><dd><a href="index.html#86">#86</a> <a href="index.html#87">#87</a> <a href="index.html#88">#88</a></dd></dl>
+  <a class="blk" href="img/blocks/P7_square_loop.png" target="_blank"><img src="img/blocks/P7_square_loop.png" alt="사각형 주행 · 4번 반복 블록 코드" loading="lazy"></a>
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>어댑티브 크루즈 · 상자를 앞차로</h3></header>
+  <p class="learn">거리 → 속도 비례 변환과 제한</p>
+  <dl><dt>시간</dt><dd>12분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, &#x27;AI 포니봇&#x27; 상자</dd><dt>원교안</dt><dd>7~8차시 p.21~23</dd><dt>덱</dt><dd><a href="index.html#101">#101</a> <a href="index.html#103">#103</a></dd></dl>
+  <a class="blk" href="img/blocks/L78_4.png" target="_blank"><img src="img/blocks/L78_4.png" alt="어댑티브 크루즈 · 상자를 앞차로 블록 코드" loading="lazy"></a><p class="memo">매트 없을 때 경로 A. 출력 범위 30~80</p>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>차간거리 설정 · P제어</h3></header>
+  <p class="learn">오차 × 2, 포화, 목표 거리</p>
+  <dl><dt>시간</dt><dd>15분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇</dd><dt>원교안</dt><dd>7~8차시 p.24~29</dd><dt>덱</dt><dd><a href="index.html#104">#104</a> <a href="index.html#105">#105</a></dd></dl>
+  <a class="blk" href="img/blocks/L78_5.png" target="_blank"><img src="img/blocks/L78_5.png" alt="차간거리 설정 · P제어 블록 코드" loading="lazy"></a>
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>라인 따라가기</h3></header>
+  <p class="learn">센서 둘 경우 넷 = 진리표 = 코드</p>
+  <dl><dt>시간</dt><dd>12분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 주행 매트</dd><dt>원교안</dt><dd>9~10차시 p.16~22</dd><dt>덱</dt><dd><a href="index.html#108">#108</a> <a href="index.html#109">#109</a> <a href="index.html#110">#110</a></dd></dl>
+  <p class="memo">매트 있을 때 경로 B</p>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>물류 로봇 · 교차부 정지와 빨간 칸 유턴</h3></header>
+  <p class="learn">라인 + 컬러 센서 통합</p>
+  <dl><dt>시간</dt><dd>15분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 주행 매트</dd><dt>원교안</dt><dd>9~10차시 p.25~34</dd><dt>덱</dt><dd><a href="index.html#111">#111</a></dd></dl>
+  <p class="memo">공식 코드는 교차부에서 빠져나오지 못할 수 있음</p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>서킷 메이커</h3></header>
+  <p class="learn">속도와 안정성의 맞바꿈</p>
+  <dl><dt>시간</dt><dd>20분</dd><dt>형태</dt><dd>4~5명 팀</dd><dt>준비</dt><dd>주행 매트 여러 장, 스톱워치</dd><dt>원교안</dt><dd>9~10차시 p.24</dd><dt>덱</dt><dd><a href="index.html#112">#112</a></dd></dl>
+  
+</article></div></section><section id="g5"><h2>학습 모델 · 내가 가르친 AI가 판단</h2><p class="desc">오후의 핵심입니다. microbit-ai-control(강사 제작)로 모델을 만들고 블루투스로 포니봇에 지시합니다.</p><div class="grid"><article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>손 모양 4개 가르치기</h3></header>
+  <p class="learn">클래스 go·stop·left·right, 30개 이상, 데이터 규칙</p>
+  <dl><dt>시간</dt><dd>12분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>노트북 웹캠</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#122">#122</a> <a href="index.html#124">#124</a></dd></dl>
+  <p class="memo"><a href="https://qksrhrrltnf-ctrl.github.io/microbit-ai-control/handpose.html" target="_blank">qksrhrrltnf-ctrl.github.io/microbit-ai-control/handpose.html</a></p>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>속이기 게임 1·2라운드</h3></header>
+  <p class="learn">모델은 데이터에 있는 것만 안다</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>팀 대항</dd><dt>준비</dt><dd>노트북</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#130">#130</a> <a href="index.html#165">#165</a></dd></dl>
+  
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>연결 확인 · 받은 글자 띄우기</h3></header>
+  <p class="learn">No Pairing Required, bluetooth 확장, 장치 이름 5글자</p>
+  <dl><dt>시간</dt><dd>8분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>포니봇, 블루투스 노트북</dd><dt>원교안</dt><dd>14차시 p.21~25</dd><dt>덱</dt><dd><a href="index.html#143">#143</a></dd></dl>
+  <a class="blk" href="img/blocks/P1_ble_check.png" target="_blank"><img src="img/blocks/P1_ble_check.png" alt="연결 확인 · 받은 글자 띄우기 블록 코드" loading="lazy"></a>
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>손 모양으로 달리기</h3></header>
+  <p class="learn">인식 → 문자열 → 블루투스 → 모터, 끊기면 정지</p>
+  <dl><dt>시간</dt><dd>15분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>포니봇, 노트북</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#144">#144</a> <a href="index.html#145">#145</a></dd></dl>
+  <a class="blk" href="img/blocks/P2_hand_drive.png" target="_blank"><img src="img/blocks/P2_hand_drive.png" alt="손 모양으로 달리기 블록 코드" loading="lazy"></a>
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>1차 미션 10회 · 실패 가르기</h3></header>
+  <p class="learn">AI·통신·로봇 중 어디가 틀렸나</p>
+  <dl><dt>시간</dt><dd>10분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 순서 카드</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#153">#153</a> <a href="index.html#154">#154</a></dd></dl>
+  
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>변수 하나만 바꾸고 다시 10회</h3></header>
+  <p class="learn">신뢰도·연속 확인·샘플·클래스, JSON v1·v2</p>
+  <dl><dt>시간</dt><dd>12분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 노트북</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#155">#155</a> <a href="index.html#156">#156</a></dd></dl>
+  
+</article>
+<article class="card t-c" data-tier="core">
+  <header><span class="tier">핵심</span><h3>자율주행 미션 · 손이 출발, 센서가 정지</h3></header>
+  <p class="learn">지시는 AI, 안전은 센서</p>
+  <dl><dt>시간</dt><dd>15분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 상자 3개</dd><dt>원교안</dt><dd>14차시 MISSION p.39~43 변형</dd><dt>덱</dt><dd><a href="index.html#168">#168</a> <a href="index.html#169">#169</a> <a href="index.html#170">#170</a> <a href="index.html#172">#172</a></dd></dl>
+  <a class="blk" href="img/blocks/P3_hand_autodrive.png" target="_blank"><img src="img/blocks/P3_hand_autodrive.png" alt="자율주행 미션 · 손이 출발, 센서가 정지 블록 코드" loading="lazy"></a>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>라인 자율주행 · go로 출발</h3></header>
+  <p class="learn">AI 출발 + 라인 + 15cm 정지</p>
+  <dl><dt>시간</dt><dd>15분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 주행 매트</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#171">#171</a></dd></dl>
+  <a class="blk" href="img/blocks/P4_line_autodrive.png" target="_blank"><img src="img/blocks/P4_line_autodrive.png" alt="라인 자율주행 · go로 출발 블록 코드" loading="lazy"></a>
+</article>
+<article class="card t-o" data-tier="opt">
+  <header><span class="tier">선택</span><h3>표지판 이미지 분류로 속도</h3></header>
+  <p class="learn">Teachable Machine 이미지 모델, 조명·거리</p>
+  <dl><dt>시간</dt><dd>20분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>노트북 웹캠, 표지판 출력물</dd><dt>원교안</dt><dd>14차시 p.16~38</dd><dt>덱</dt><dd><a href="index.html#132">#132</a> <a href="index.html#133">#133</a> <a href="index.html#134">#134</a> <a href="index.html#162">#162</a></dd></dl>
+  <a class="blk" href="img/blocks/P8_sign_drive.png" target="_blank"><img src="img/blocks/P8_sign_drive.png" alt="표지판 이미지 분류로 속도 블록 코드" loading="lazy"></a><p class="memo"><a href="https://qksrhrrltnf-ctrl.github.io/microbit-ai-control/image.html" target="_blank">qksrhrrltnf-ctrl.github.io/microbit-ai-control/image.html</a> · 공식 fast 255 → 120</p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>음성 서빙 로봇 one·two·three</h3></header>
+  <p class="learn">사전학습 음성인식 + 명령어 표 + 함수 경로</p>
+  <dl><dt>시간</dt><dd>20분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>포니봇, 노트북 마이크, 테이블 출력물</dd><dt>원교안</dt><dd>17차시 p.14~43</dd><dt>덱</dt><dd><a href="index.html#160">#160</a> <a href="index.html#161">#161</a></dd></dl>
+  <a class="blk" href="img/blocks/P9_voice_funcs.png" target="_blank"><img src="img/blocks/P9_voice_funcs.png" alt="음성 서빙 로봇 one·two·three 블록 코드" loading="lazy"></a><p class="memo"><a href="https://qksrhrrltnf-ctrl.github.io/microbit-ai-control/voice.html" target="_blank">qksrhrrltnf-ctrl.github.io/microbit-ai-control/voice.html</a> · 인터넷 필요</p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>사물 인식 · 사람 따라가기</h3></header>
+  <p class="learn">사전학습 COCO-SSD 80종, 좌표·크기로 제어</p>
+  <dl><dt>시간</dt><dd>20분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>노트북 웹캠</dd><dt>원교안</dt><dd>16차시 p.22~37</dd><dt>덱</dt><dd><a href="index.html#163">#163</a></dd></dl>
+  <p class="memo"><a href="https://qksrhrrltnf-ctrl.github.io/microbit-ai-control/object.html" target="_blank">qksrhrrltnf-ctrl.github.io/microbit-ai-control/object.html</a></p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>데이터 스트리머 · 센서 그래프</h3></header>
+  <p class="learn">로봇 → 웹 방향 데이터, 초음파 0과 튀는 값 보기</p>
+  <dl><dt>시간</dt><dd>10분</dd><dt>형태</dt><dd>2인 1조</dd><dt>준비</dt><dd>포니봇, 노트북</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><a href="index.html#164">#164</a></dd></dl>
+  <a class="blk" href="img/blocks/P5_streamer.png" target="_blank"><img src="img/blocks/P5_streamer.png" alt="데이터 스트리머 · 센서 그래프 블록 코드" loading="lazy"></a><p class="memo"><a href="https://qksrhrrltnf-ctrl.github.io/microbit-ai-control/streamer.html" target="_blank">qksrhrrltnf-ctrl.github.io/microbit-ai-control/streamer.html</a></p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>포즈 제어 로봇</h3></header>
+  <p class="learn">PoseNet 위의 분류기(전이학습), 중립 자세 = 정지 클래스</p>
+  <dl><dt>시간</dt><dd>20분</dd><dt>형태</dt><dd>팀</dd><dt>준비</dt><dd>노트북 웹캠, 넓은 공간</dd><dt>원교안</dt><dd>15차시 p.14~34</dd><dt>덱</dt><dd><span class="none">덱에 없음</span></dd></dl>
+  <p class="memo">덱에 없음. https://qksrhrrltnf-ctrl.github.io/microbit-ai-control/pose.html · 공식 교안은 차렷 = 후진</p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>Bomb Bomb 레이스 · 포즈 + 컬러 센서</h3></header>
+  <p class="learn">AI 조종에 규칙 기반 안전장치를 더한다</p>
+  <dl><dt>시간</dt><dd>20분</dd><dt>형태</dt><dd>팀 대항</dd><dt>준비</dt><dd>포니봇, 지뢰 출력물(빨간 A4)</dd><dt>원교안</dt><dd>15차시 p.35~38</dd><dt>덱</dt><dd><span class="none">덱에 없음</span></dd></dl>
+  <p class="memo">덱에 없음. 출력물 img/official/printout_2_p1.png</p>
+</article>
+<article class="card t-x" data-tier="ext">
+  <header><span class="tier">확장</span><h3>얼굴 인식 · 표정으로 지시</h3></header>
+  <p class="learn">얼굴 패킷(입·눈·미소) 자르기</p>
+  <dl><dt>시간</dt><dd>15분</dd><dt>형태</dt><dd>개인</dd><dt>준비</dt><dd>노트북 웹캠</dd><dt>원교안</dt><dd>-</dd><dt>덱</dt><dd><span class="none">덱에 없음</span></dd></dl>
+  <p class="memo">덱에 없음. https://qksrhrrltnf-ctrl.github.io/microbit-ai-control/face.html</p>
+</article></div></section>
+  <p class="foot">원교안 쪽 번호는 boundaryX AI 포니봇 교안 PDF(크롭 전 원본) 기준. 블록 그림: 공식 정답 hex(L로 시작)와 연수용 새 코드(P로 시작)를 MakeCode에서 렌더. AI 도구: microbit-ai-control(서광민 제작).</p>
+</div>
+<script>
+(function(){
+  function tog(id,cls){var b=document.getElementById(id);b.addEventListener('click',function(){var on=document.body.classList.toggle(cls);b.setAttribute('aria-pressed',on);});}
+  tog('f-core','only-core');tog('f-ext','hide-ext');
+})();
+</script>
+</body>
+</html>
